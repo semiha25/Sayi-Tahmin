@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+  </head>
+  <body>
+        <h1>Sayı Tahmin</h1>
+        <input type="button" id="baslat"   value="Başla">
+        <input type="button" id="tahmin"  value="Tahmin Et" disabled><br>
+        <input type="text"  id="sayi" placeholder="Bir sayı girin (0-100)">
+          <script>
+              var rsayi,sayac,hak=7;
+              var baslat=document.querySelector("#baslat");
+              var tahmin=document.querySelector("#tahmin");
+              var sayi=document.querySelector("#sayi");
+          
+          baslat.onclick=function()
+          {
+              tahmin.disabled=false;
+              rsayi=Math.round(Math.random()*100);
+              sayac=0;
+              
+          }
+          tahmin.onclick=function()
+          {
+              sayac++;
+              if(rsayi!=sayi.value && sayac>=hak)
+              {
+                  window.alert("Üzgünüm hakkınız bitti");
+                  tahmin.disabled=true;
+              }
+              
+              if(rsayi==sayi.value)
+              {
+                  window.alert("tebrikler kazandınız.");
+              }
+              else if(sayi.value>rsayi)
+              {
+                  window.alert("Daha küçük sayı girin");
+              }
+              else
+              {
+                  window.alert("Daha büyük sayı girin");
+              }
+          }
+    </script>
+  </body>
+</html>
